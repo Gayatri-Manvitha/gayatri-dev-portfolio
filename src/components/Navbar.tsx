@@ -1,11 +1,12 @@
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useState } from 'react'
 
 const links = [
   { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
+  { href: '#skills', label: 'Expertise' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
-  { href: '#certifications', label: 'Certifications' },
+  { href: '#architecture', label: 'System design' },
 ]
 
 type NavbarProps = {
@@ -23,8 +24,9 @@ function Navbar({ theme, onThemeToggle }: NavbarProps) {
   return (
     <header className="site-header">
       <nav className="nav-shell" aria-label="Main navigation">
-        <a className="brand" href="#home" onClick={closeMenu}>
-          Gayatri
+        <a className="brand" href="#home" onClick={closeMenu} aria-label="Gayatri Manvitha Jaladi — home">
+          <span className="brand-mark" aria-hidden="true">G</span>
+          <span>Gayatri <span className="brand-surname">Jaladi</span></span>
         </a>
         <button
           className="menu-toggle"
@@ -34,7 +36,7 @@ function Navbar({ theme, onThemeToggle }: NavbarProps) {
           aria-controls="primary-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? '×' : '☰'}
+          {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
         </button>
         <div
           className="nav-links"
@@ -46,12 +48,8 @@ function Navbar({ theme, onThemeToggle }: NavbarProps) {
               {link.label}
             </a>
           ))}
-          <a
-            className="nav-contact"
-            href="#contact"
-            onClick={closeMenu}
-          >
-            Get in touch
+          <a className="nav-contact" href="#contact" onClick={closeMenu}>
+            Let’s talk
           </a>
           <button
             className="nav-theme"
@@ -63,8 +61,8 @@ function Navbar({ theme, onThemeToggle }: NavbarProps) {
               onThemeToggle()
             }}
           >
-            <span aria-hidden="true">{theme === 'light' ? '☾' : '☀'}</span>
-            {theme === 'light' ? 'Dark mode' : 'Light mode'}
+            {theme === 'light' ? <Moon size={16} aria-hidden="true" /> : <Sun size={16} aria-hidden="true" />}
+            <span className="theme-label">{theme === 'light' ? 'Dark' : 'Light'}</span>
           </button>
         </div>
       </nav>

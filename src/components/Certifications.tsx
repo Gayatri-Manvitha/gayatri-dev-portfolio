@@ -1,62 +1,42 @@
+import { Award, GraduationCap } from 'lucide-react'
 import { portfolio } from '../data/portfolio'
 
 function Certifications() {
   return (
-    <section className="content-section" id="certifications">
+    <section className="content-section section-soft" id="certifications" aria-labelledby="certifications-title">
       <div className="section-shell">
         <div className="section-heading">
-          <p className="eyebrow">Learning milestones</p>
-          <h2>Certifications & education.</h2>
+          <p className="eyebrow">06 — Credentials</p>
+          <h2 id="certifications-title">Learning, applied.</h2>
         </div>
-        {portfolio.certifications.length > 0 ? (
-          <div className="card-grid">
-            {portfolio.certifications.map((certification) => (
-              <article className="portfolio-card" key={certification.title}>
-                <h3>{certification.title}</h3>
-                {certification.organization && (
-                  <span className="card-meta">
-                    {certification.organization}
-                  </span>
-                )}
-                {certification.period && (
-                  <span className="card-meta">{certification.period}</span>
-                )}
-                <p>{certification.description}</p>
-                {certification.link && (
-                  <a
-                    className="card-link"
-                    href={certification.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View credential ↗
-                  </a>
-                )}
+        <div className="credential-grid">
+          <div>
+            <h3 className="subsection-title"><Award size={18} aria-hidden="true" /> Certifications</h3>
+            {portfolio.certifications.map((item) => (
+              <article className="credential-card" key={item.title}>
+                <span className="credential-icon"><Award size={19} aria-hidden="true" /></span>
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.organization}</p>
+                  <p className="credential-description">{item.description}</p>
+                </div>
               </article>
             ))}
           </div>
-        ) : null}
-        {portfolio.education.length > 0 && (
-          <>
-            <div className="section-heading education-heading">
-              <p className="eyebrow">Education</p>
-            </div>
-            <div className="card-grid">
-              {portfolio.education.map((item) => (
-                <article className="portfolio-card" key={item.title}>
-                  <h3>{item.title}</h3>
-                  {item.organization && (
-                    <span className="card-meta">{item.organization}</span>
-                  )}
-                  {item.period && (
-                    <span className="card-meta">{item.period}</span>
-                  )}
-                  <p>{item.description}</p>
-                </article>
-              ))}
-            </div>
-          </>
-        )}
+          <div>
+            <h3 className="subsection-title"><GraduationCap size={19} aria-hidden="true" /> Education</h3>
+            {portfolio.education.map((item) => (
+              <article className="credential-card" key={item.title}>
+                <span className="credential-icon"><GraduationCap size={20} aria-hidden="true" /></span>
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.organization}</p>
+                  <p className="credential-description">{item.period} · {item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

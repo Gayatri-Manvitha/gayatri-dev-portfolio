@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import About from './components/About'
+import Architecture from './components/Architecture'
 import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Experience from './components/Experience'
@@ -18,9 +19,7 @@ function App() {
       return savedTheme
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
+    return 'dark'
   })
 
   useEffect(() => {
@@ -42,11 +41,13 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
+        <Architecture />
         <Certifications />
         <Contact />
       </main>
       <footer className="site-footer">
-        <span>© {new Date().getFullYear()} Gayatri</span>
+        <span>© {new Date().getFullYear()} Gayatri Manvitha Jaladi</span>
+        <span>Java · Cloud · Systems</span>
         <a href="#home">Back to top ↑</a>
       </footer>
     </>

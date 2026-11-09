@@ -2,24 +2,32 @@ import { portfolio } from '../data/portfolio'
 
 function Skills() {
   return (
-    <section className="content-section" id="skills">
+    <section className="content-section section-soft" id="skills" aria-labelledby="skills-title">
       <div className="section-shell">
-        <div className="section-heading">
-          <p className="eyebrow">My toolkit</p>
-          <h2>Skills I’m building with.</h2>
-        </div>
-        {portfolio.skills.length > 0 ? (
-          <ul className="tag-list" aria-label="Skills">
-            {portfolio.skills.map((skill) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="empty-state">
-            Add your skills to the <code>skills</code> list in{' '}
-            <code>src/data/portfolio.ts</code>.
+        <div className="section-heading section-heading-row">
+          <div>
+            <p className="eyebrow">02 — Technical toolkit</p>
+            <h2 id="skills-title">The tools behind the work.</h2>
+          </div>
+          <p className="section-side-note">
+            A practical toolkit shaped by enterprise delivery, with AI and automation as growing areas of focus.
           </p>
-        )}
+        </div>
+        <div className="skill-groups">
+          {portfolio.skills.map((group, index) => (
+            <article className="skill-group" key={group.category}>
+              <div className="skill-group-heading">
+                <span>0{index + 1}</span>
+                <h3>{group.category}</h3>
+              </div>
+              <ul className="tag-list" aria-label={group.category}>
+                {group.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
