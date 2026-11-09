@@ -1,2 +1,22 @@
-# gayatri-dev-portfolio
-Personal portfolio showcasing my expertise in Java Full Stack Development, Cloud Architecture, Microservices, and AI-powered solutions, along with professional experience, projects, and technical achievements.
+# Gayatri Manvitha Jaladi — Portfolio
+
+A responsive portfolio built with React, TypeScript, and Vite. It showcases
+Gayatri's backend and cloud engineering profile, skills, experience, projects,
+certifications, and education.
+
+## Development
+
+```sh
+npm install
+npm run dev
+```
+
+## Build and lint
+
+```sh
+npm run build
+npm run lint
+```
+
+Portfolio details are maintained in `src/data/portfolio.ts`. The downloadable
+resume is served from `public/Gayatri_Java_Cloud_Resume.docx`.
